@@ -115,14 +115,14 @@ public class GoldenSquare {
                 return path;
             }
         }
-        if (from.getSouth() != null) {
-            List<String> path = pathToGolden(from.getSouth(), addPosition(currentPath, from.getSouth().getPosition()));
+        if (from.getEast() != null) {
+            List<String> path = pathToGolden(from.getEast(), addPosition(currentPath, from.getEast().getPosition()));
             if (path != null) {
                 return path;
             }
         }
-        if (from.getEast() != null) {
-            List<String> path = pathToGolden(from.getEast(), addPosition(currentPath, from.getEast().getPosition()));
+        if (from.getSouth() != null) {
+            List<String> path = pathToGolden(from.getSouth(), addPosition(currentPath, from.getSouth().getPosition()));
             if (path != null) {
                 return path;
             }
