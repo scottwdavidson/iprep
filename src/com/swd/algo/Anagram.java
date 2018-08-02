@@ -36,7 +36,7 @@ public class Anagram {
             // Convert word into a character array
             char[] characterArray = originalWord.toLowerCase().toCharArray();
 
-            // Sort using natural ordering (using Collections w/ an "s" class)
+            // Sort using natural ordering (using Arrays w/ an "s" class)
             Arrays.sort(characterArray);
 
             // Convert the sorted character array back into a String
