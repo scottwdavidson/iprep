@@ -8,33 +8,33 @@ public class BasicThreads implements Runnable {
 
     public static class MyThread extends Thread {
 
-    public MyThread(String name) {
-        super(name);
-    }
-
-    @Override
-    public void run() {
-        System.out.println("MyThread - START "+Thread.currentThread().getName());
-        try {
-            Thread.sleep(1000);
-            //Get database connection, delete unused data from DB
-            doDBProcessing();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        public MyThread(String name) {
+            super(name);
         }
-        System.out.println("MyThread - END "+Thread.currentThread().getName());
+
+        @Override
+        public void run() {
+            System.out.println("MyThread - START " + Thread.currentThread().getName());
+            try {
+                Thread.sleep(1000);
+                //Get database connection, delete unused data from DB
+                doDBProcessing();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("MyThread - END " + Thread.currentThread().getName());
+        }
+
+        private void doDBProcessing() throws InterruptedException {
+            System.out.println("In doDBProcessing " + Thread.currentThread().getName());
+            Thread.sleep(5000);
+            System.out.println("Out doDBProcessing " + Thread.currentThread().getName());
+        }
+
     }
 
-    private void doDBProcessing() throws InterruptedException {
-        System.out.println("In doDBProcessing "+Thread.currentThread().getName());
-        Thread.sleep(5000);
-        System.out.println("Out doDBProcessing "+Thread.currentThread().getName());
-    }
 
-}
-
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Thread t1 = new Thread(new BasicThreads(), "t1");
         Thread t2 = new Thread(new BasicThreads(), "t2");
         System.out.println("Starting Runnable threads");
@@ -52,9 +52,9 @@ public class BasicThreads implements Runnable {
     }
 
     @Override
-    public void run(){
+    public void run() {
 
-        System.out.println("Doing heavy processing - START "+Thread.currentThread().getName());
+        System.out.println("Doing heavy processing - START " + Thread.currentThread().getName());
 
         try {
 
@@ -64,13 +64,13 @@ public class BasicThreads implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Doing heavy processing - END "+Thread.currentThread().getName());
+        System.out.println("Doing heavy processing - END " + Thread.currentThread().getName());
     }
 
     protected void doDBProcessing() throws InterruptedException {
-        System.out.println("In doDBProcessing "+Thread.currentThread().getName());
+        System.out.println("In doDBProcessing " + Thread.currentThread().getName());
         Thread.sleep(5000);
-        System.out.println("Out doDBProcessing "+Thread.currentThread().getName());
+        System.out.println("Out doDBProcessing " + Thread.currentThread().getName());
 
     }
 }
