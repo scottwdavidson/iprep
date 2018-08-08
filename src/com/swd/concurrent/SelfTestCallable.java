@@ -118,4 +118,31 @@ public class SelfTestCallable implements Callable<SelfTestCallable.NewTask> {
         exit(0);
     }
 
+    public void testing(){
+
+        ExecutorService es = Executors.newFixedThreadPool(5);
+        Future futureAN = es.submit(new RR());
+        if (futureAN.isDone()){
+//            String an = futureAN.get();
+
+        }
+
+        Thread t = new Thread(new RR());
+        t.run();
+
+    }
+
+    public static class AN implements Callable<String> {
+
+        public String call(){
+
+            Thread.currentThread().getName();
+            return "Hi";
+        }
+    }
+
+    public static class RR implements Runnable {
+        public void run(){}
+    }
+
 }

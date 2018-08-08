@@ -4,6 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Problem: Given a array of integer arrays ( points on a graph ), find the "k" closest points to the origin.
+ *
+ * 1. Create a sorted ( TreeMap ) collection which uses the distance as a key. Iterate through all of the points and insert
+ *    a new record for each point w/ its distance as the key.
+ * 2. Iterate through the first k elements of the TreeMap elements and store them in the return array.
+ *
+ * Note: AMZ talks about a structure called a HeapMap which is like a TreeMap *except* that has a specified capacity. So,
+ * once you've hit the capacity, each new attempted add either: a) rejects the value b/c it's not one of the k shortest
+ * distances or b) discards the longest distance of the k distances and inserts the new (short) distance. This approach
+ * deals w/ the space performance if the input is very large ( not duplicating the whole input array size )
+ */
 public class AmzKClosestPoints {
 
     public static void main(String[] args){
